@@ -2,6 +2,7 @@
 III Cuatrimestre
 Estudiantes:
             Brayton Maccoy Artola
+            Jean Paulo Monge Alfaro
             
             
 
