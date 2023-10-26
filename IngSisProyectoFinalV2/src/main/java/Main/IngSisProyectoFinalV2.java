@@ -3,7 +3,7 @@ III Cuatrimestre
 Estudiantes:
             Brayton Maccoy Artola
             Jean Paulo Monge Alfaro
-            
+            Jeremy Acuña Brenes
             
 
 Profesor: Esteban Marín Chinchilla
