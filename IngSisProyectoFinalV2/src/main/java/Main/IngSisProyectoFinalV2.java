@@ -17,7 +17,7 @@ public class IngSisProyectoFinalV2 {
 
     public static void main(String[] args) {
       boolean continuar = true;
-      
+      AgregarConsultar agreconsul=new AgregarConsultar();
       
       while(continuar){
             
@@ -28,25 +28,35 @@ public class IngSisProyectoFinalV2 {
                 case 0:
                     continuar = false;
                     break;
-
+            //Agregar usuario
                 case 1:
                     continuar = false;
+                    RegistroUsuarios regis=new RegistroUsuarios();
+                        regis.setNombre(JOptionPane.showInputDialog(null,"Digite su nombre:"));
+            regis.setPrimerApellido(JOptionPane.showInputDialog(null, "Digite su primer apellido:"));
+            regis.setSegundoApellido(JOptionPane.showInputDialog(null,"Digite su segundo apellido:"));
+            regis.setContraseña(JOptionPane.showInputDialog(null,"Digite su contraseña:"));
                     break;
+                    
 
                 case 2:
                    
                     continuar = false;
+                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
                     break;
                 case 3:
                     
                     continuar = false;
+                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
                     break;
                     
                 case 4:
-                    
+            
                     continuar = false;
+                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
                     break;
                 case 5:
+                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
                     JOptionPane.showMessageDialog(null, "Bienvenido al Catálogo de Rutinasl\n");
                     CatalogoRutinas cl1 = new CatalogoRutinas();
                     cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de usuario: "));
