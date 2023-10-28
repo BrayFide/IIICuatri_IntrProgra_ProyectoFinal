@@ -31,11 +31,52 @@ public class IngSisProyectoFinalV2 {
 
                 case 1:
                     continuar = false;
+                    
+                    //Datos de la cuenta en la clase #2
+                    CatalogoPadre catPadre = new CatalogoPadre();
+                    catPadre.setNombreCompletoPadre(JOptionPane.showInputDialog(null, "Digite el nombre completo del padre:"));
+                    catPadre.setNombreNinoPadre(JOptionPane.showInputDialog(null, "Seleccione el niño del padre:"));
+                    catPadre.setCiudadPadre(JOptionPane.showInputDialog(null, "Digite la ciudad del padre:"));
+                    catPadre.setDireccionPadre(JOptionPane.showInputDialog(null, "Digite la dirección del padre:"));
+                    catPadre.setTelefonoPadre(JOptionPane.showInputDialog(null, "Digite el teléfono del padre:"));
+                    catPadre.setCorreoPadre(JOptionPane.showInputDialog(null, "Digite el correo del padre:"));
+                    catPadre.setEstadoPadre(JOptionPane.showInputDialog(null, "Digite el estado del padre:"));
+
+                    JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del padre, aquí están los datos:" +
+                    "Nombre: " + catPadre.getNombreCompletoPadre() + "\n" + 
+                    "Nombre del niño: " + catPadre.getNombreNinoPadre() + "\n" +
+                    "Ciudad: " + catPadre.getCiudadPadre() + "\n" +
+                    "Dirección: " + catPadre.getDireccionPadre() + "\n" +
+                    "Teléfono: " + catPadre.getTelefonoPadre() + "\n" +
+                    "Correo: " + catPadre.getCorreoPadre() + "\n" +
+                    "Estado: " + catPadre.getEstadoPadre() + "\n");
+
+                    
                     break;
 
                 case 2:
                    
                     continuar = false;
+                    
+                    //Datos de la cuenta en la clase #2
+                    CatalogoDeportista catDepor = new CatalogoDeportista();
+                    catDepor.setIdentificacionDeportista(JOptionPane.showInputDialog(null, "Digite el nombre completo del deportista:"));
+                    catDepor.setNombreCompletoDeportista(JOptionPane.showInputDialog(null, "Seleccione el niño del deportista:"));
+                    catDepor.setCiudadDeportista(JOptionPane.showInputDialog(null, "Digite la ciudad del deportista:"));
+                    catDepor.setDireccionDeportista(JOptionPane.showInputDialog(null, "Digite la dirección del deportista:"));
+                    catDepor.setTelefonoDeportista(JOptionPane.showInputDialog(null, "Digite el teléfono del deportista:"));
+                    catDepor.setCorreoDeportista(JOptionPane.showInputDialog(null, "Digite el correo del deportista:"));
+                    catDepor.setEstadoDeportista(JOptionPane.showInputDialog(null, "Digite el estado del deportista:"));
+
+                    JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del deportista, aquí están los datos:" +
+                    "Identificación: " + catDepor.getIdentificacionDeportista() + "\n" + 
+                    "Nombre del niño: " + catDepor.getNombreCompletoDeportista() + "\n" +
+                    "Ciudad: " + catDepor.getCiudadDeportista() + "\n" +
+                    "Dirección: " + catDepor.getDireccionDeportista() + "\n" +
+                    "Teléfono: " + catDepor.getTelefonoDeportista() + "\n" +
+                    "Correo: " + catDepor.getCorreoDeportista() + "\n" +
+                    "Estado: " + catDepor.getEstadoDeportista() + "\n");
+                    
                     break;
                 case 3:
                     
