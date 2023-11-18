@@ -22,6 +22,22 @@ public class CatalogoPadre {
         this.estadoPadre = "";
     }
     
+    public CatalogoPadre(String nombreCompletoPadre, 
+            String nombreNinoPadre, 
+            String ciudadPadre, 
+            String direccionPadre,
+            String telefonoPadre,
+            String correoPadre,
+            String estadoPadre) {
+        this.nombreCompletoPadre = nombreCompletoPadre;
+        this.nombreNinoPadre = nombreNinoPadre;
+        this.ciudadPadre = ciudadPadre;
+        this.direccionPadre = direccionPadre;
+        this.telefonoPadre = telefonoPadre;
+        this.correoPadre = correoPadre;
+        this.estadoPadre = estadoPadre;
+    }
+    
     public String getNombreCompletoPadre() {   
         return nombreCompletoPadre;
     }
