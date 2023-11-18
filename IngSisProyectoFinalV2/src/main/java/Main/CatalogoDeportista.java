@@ -22,6 +22,22 @@ public class CatalogoDeportista {
         this.estadoDeportista = "";
     }
     
+    public CatalogoDeportista(String identificacionDeportista, 
+            String nombreCompletoDeportista, 
+            String ciudadDeportista, 
+            String direccionDeportista,
+            String telefonoDeportista,
+            String correoDeportista,
+            String estadoDeportista) {
+        this.identificacionDeportista = identificacionDeportista;
+        this.nombreCompletoDeportista = nombreCompletoDeportista;
+        this.ciudadDeportista = ciudadDeportista;
+        this.direccionDeportista = direccionDeportista;
+        this.telefonoDeportista = telefonoDeportista;
+        this.correoDeportista = correoDeportista;
+        this.estadoDeportista = estadoDeportista;
+    }
+    
     public String getIdentificacionDeportista() {   
         return identificacionDeportista;
     }
