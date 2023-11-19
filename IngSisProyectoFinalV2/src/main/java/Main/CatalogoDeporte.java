@@ -9,6 +9,12 @@ public class CatalogoDeporte {
  private String Estaddo3;
  private String Deporte2;
  private String Deporte3;
+<<<<<<< Updated upstream
+=======
+ private int OpcDeporte;
+ private char estadoFut;
+ private String NombreUsuario;
+>>>>>>> Stashed changes
 
     public CatalogoDeporte() {
         this.Deporte1 = "";
@@ -17,6 +23,8 @@ public class CatalogoDeporte {
         this.Estaddo3 = "";
         this.Deporte2 = "";
         this.Deporte3 = "";
+        this.estadoFut= 'S';
+        this.NombreUsuario = "Thomas";
     }
 
     public String getDeporte1() {
@@ -75,6 +83,33 @@ public class CatalogoDeporte {
     public void setDeporte3(String Deporte3) {
         this.Deporte3 = Deporte3;
     }
+<<<<<<< Updated upstream
+=======
+
+    public int getOpcDeporte() {
+        return OpcDeporte;
+    }
+
+    public void setOpcDeporte(int OpcDeporte) {
+        this.OpcDeporte = OpcDeporte;
+    }
+
+    public char getEstadoFut() {
+        return estadoFut;
+    }
+
+    public void setEstadoFut(char estadoFut) {
+        this.estadoFut = estadoFut;
+    }
+
+    public String getNombreUsuario() {
+        return NombreUsuario;
+    }
+
+    public void setNombreUsuario(String NombreUsuario) {
+        this.NombreUsuario = NombreUsuario;
+    }
+>>>>>>> Stashed changes
  
  
 }

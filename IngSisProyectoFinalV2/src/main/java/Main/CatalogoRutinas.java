@@ -8,14 +8,19 @@ public class CatalogoRutinas {
     private String Rutina;
     private String Rutina2;
     private String Rutina3;
+    private String rut;
+    private char estado;
 
     public CatalogoRutinas() {
         this.Deporte = 0;
-        this.NombreUsuario = "";
+        this.NombreUsuario = "Pepe";
         this.contraseña ="" ;
         this.Rutina = "";
         this.Rutina2 = "";
         this.Rutina3 = "";
+        this.rut = "";
+        this.estado= 'S';
+        
         
         
     }
@@ -111,6 +116,22 @@ public class CatalogoRutinas {
 
     public void setRutina3(String Rutina3) {
         this.Rutina3 = Rutina3;
+    }
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
+    public char getEstado() {
+        return estado;
+    }
+
+    public void setEstado(char estado) {
+        this.estado = estado;
     }
     
     

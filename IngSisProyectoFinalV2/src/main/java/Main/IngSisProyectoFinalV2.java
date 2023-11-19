@@ -13,7 +13,9 @@ Profesor: Esteban Marín Chinchilla
 package Main;
 import javax.swing.JOptionPane;
 
+
 public class IngSisProyectoFinalV2 {
+<<<<<<< Updated upstream
 
     public static void main(String[] args) {
       boolean continuar = true;
@@ -154,3 +156,16 @@ public class IngSisProyectoFinalV2 {
       }
     }
 }
+=======
+    public static void main(String[] args) {
+ Rutina m = new Rutina();
+    
+ 
+ 
+   m.SubMenuDeportes();
+    m.SubMenuFacturacion();
+    
+    
+    }
+}
+>>>>>>> Stashed changes
