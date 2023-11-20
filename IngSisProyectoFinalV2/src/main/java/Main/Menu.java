@@ -1,284 +1,53 @@
-
-import Main.AgregarConsultar;
-import Main.CatalogoDeporte;
-import Main.CatalogoDeportista;
-import Main.CatalogoPadre;
-import Main.CatalogoRutinas;
-import Main.Facturacion;
-import Main.Login;
-import Main.RegistroUsuarios;
-import javax.swing.JOptionPane;
-
-/*
-
 package Main;
 
-/**
- *
- * @author braym
- */
+import javax.swing.JOptionPane;
+
 public class Menu {
-    public static void main(String[] args) {
-
-        
-        Login cly = new Login();
-   cly.setUsuario(JOptionPane.showInputDialog("Ingrese su nombre de usuario"));
-   cly.setContraseña(JOptionPane.showInputDialog("Ingrese su contraseña"));
+    
+    public void mostrarMenu(){
+        Rutina r = new Rutina();
         boolean continuar = true;
-
-        while (continuar) {
-
-
-      
-      AgregarConsultar agreconsul=new AgregarConsultar();
-      
-      while(continuar){
-            
-
-            int seleccion = (Integer.parseInt(JOptionPane.showInputDialog("Bienvenido al Menú principal\n"
-                    + "Escoga la opcion que desea ingresar \n1- Agregar Usuario\n2- Catalogo Padres\n3- Catalogo Deportistas\n4- Catalogo Deportes\n5- Catalogo Rutinas\n6-Facturacion\n7- Salir")));
-
-            switch (seleccion) {
-                case 0:
-                    continuar = false;
-                    break;
-            //Agregar usuario
-                case 1:
-                    continuar = false;
-
-                    
-                    //Datos de la cuenta en la clase #2
-                    CatalogoPadre catPadre = new CatalogoPadre();
-                    catPadre.setNombreCompletoPadre(JOptionPane.showInputDialog(null, "Digite el nombre completo del padre:"));
-                    catPadre.setNombreNinoPadre(JOptionPane.showInputDialog(null, "Seleccione el niño del padre:"));
-                    catPadre.setCiudadPadre(JOptionPane.showInputDialog(null, "Digite la ciudad del padre:"));
-                    catPadre.setDireccionPadre(JOptionPane.showInputDialog(null, "Digite la dirección del padre:"));
-                    catPadre.setTelefonoPadre(JOptionPane.showInputDialog(null, "Digite el teléfono del padre:"));
-                    catPadre.setCorreoPadre(JOptionPane.showInputDialog(null, "Digite el correo del padre:"));
-                    catPadre.setEstadoPadre(JOptionPane.showInputDialog(null, "Digite el estado del padre:"));
-
-                    JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del padre, aquí están los datos:" +
-                    "Nombre: " + catPadre.getNombreCompletoPadre() + "\n" + 
-                    "Nombre del niño: " + catPadre.getNombreNinoPadre() + "\n" +
-                    "Ciudad: " + catPadre.getCiudadPadre() + "\n" +
-                    "Dirección: " + catPadre.getDireccionPadre() + "\n" +
-                    "Teléfono: " + catPadre.getTelefonoPadre() + "\n" +
-                    "Correo: " + catPadre.getCorreoPadre() + "\n" +
-                    "Estado: " + catPadre.getEstadoPadre() + "\n");
-
-                    
-
-                    RegistroUsuarios regis=new RegistroUsuarios();
-                        regis.setNombre(JOptionPane.showInputDialog(null,"Digite su nombre:"));
-            regis.setPrimerApellido(JOptionPane.showInputDialog(null, "Digite su primer apellido:"));
-            regis.setSegundoApellido(JOptionPane.showInputDialog(null,"Digite su segundo apellido:"));
-            regis.setContraseña(JOptionPane.showInputDialog(null,"Digite su contraseña:"));
-
-                    break;
-                    
-
-                case 2:
-
-                    continuar = false;
-
-                    
-                    //Datos de la cuenta en la clase #2
-                    CatalogoDeportista catDepor = new CatalogoDeportista();
-                    catDepor.setIdentificacionDeportista(JOptionPane.showInputDialog(null, "Digite el nombre completo del deportista:"));
-                    catDepor.setNombreCompletoDeportista(JOptionPane.showInputDialog(null, "Seleccione el niño del deportista:"));
-                    catDepor.setCiudadDeportista(JOptionPane.showInputDialog(null, "Digite la ciudad del deportista:"));
-                    catDepor.setDireccionDeportista(JOptionPane.showInputDialog(null, "Digite la dirección del deportista:"));
-                    catDepor.setTelefonoDeportista(JOptionPane.showInputDialog(null, "Digite el teléfono del deportista:"));
-                    catDepor.setCorreoDeportista(JOptionPane.showInputDialog(null, "Digite el correo del deportista:"));
-                    catDepor.setEstadoDeportista(JOptionPane.showInputDialog(null, "Digite el estado del deportista:"));
-
-                    JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del deportista, aquí están los datos:" +
-                    "Identificación: " + catDepor.getIdentificacionDeportista() + "\n" + 
-                    "Nombre del niño: " + catDepor.getNombreCompletoDeportista() + "\n" +
-                    "Ciudad: " + catDepor.getCiudadDeportista() + "\n" +
-                    "Dirección: " + catDepor.getDireccionDeportista() + "\n" +
-                    "Teléfono: " + catDepor.getTelefonoDeportista() + "\n" +
-                    "Correo: " + catDepor.getCorreoDeportista() + "\n" +
-                    "Estado: " + catDepor.getEstadoDeportista() + "\n");
-                    
-
-                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
-
-                    break;
-                case 3:
-
-                    continuar = false;
-                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
-                    break;
-
-                case 4:
-
-                    JOptionPane.showMessageDialog(null, "Bienvenido al Catálogo de Deportes\n");
-                    CatalogoDeporte clx = new CatalogoDeporte();
-                    clx.setOpcDeporte(Integer.parseInt(JOptionPane.showInputDialog("Seleccione el deporte al que va ingresar \n1- Futball\n2-Volleyball  \n3-Basketball")));
-                    int opcdeporte = clx.getOpcDeporte();
-
-                    switch (opcdeporte) {
-
-                        case 0:
-
-                            break;
-
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "Bienvenido al deporte de Futball\n");
-                            clx.getDeporte1();
-                            //Activar o desactivar
-                            clx.setEstaddo1(JOptionPane.showInputDialog("Activar deporte? S/N"));
-                            String estadoFut = clx.getEstaddo1();
-
-                            switch (estadoFut) {
-
-                                case "S":
-                                    JOptionPane.showMessageDialog(null, "Deporte Futball Activado en su cuenta\n");
-                                    break;
-
-                                case "N":
-                                    JOptionPane.showMessageDialog(null, "Estado Desactivado");
-
-                                    break;
-
-                                default:
-                                    // Opción no válida
-
-                                    JOptionPane.showMessageDialog(null, "Opción no válida");
-                                    break;
-
-                            }
-
-                            break;
-
-                        case 2:
-                            JOptionPane.showMessageDialog(null, "Bienvenido al deporte de Volleyball\n");
-                            clx.getDeporte2();
-                            //Activar o desactivar
-                            clx.setEstaddo2(JOptionPane.showInputDialog("Activar deporte? S/N"));
-                            String estadoVoll = clx.getEstaddo2();
-
-                            switch (estadoVoll) {
-
-                                case "S":
-                                    JOptionPane.showMessageDialog(null, "Deporte Volleyball Activado en su cuenta\n");
-                                    //Agregar Ver rutina
-                                    break;
-
-                                case "N":
-                                    JOptionPane.showMessageDialog(null, "Estado Desactivado");
-
-                                    break;
-
-                                default:
-                                    // Opción no válida
-
-                                    JOptionPane.showMessageDialog(null, "Opción no válida");
-                                    break;
-
-                            }
-
-                            break;
-
-                        case 3:
-                            JOptionPane.showMessageDialog(null, "Bienvenido al deporte de Basketball\n");
-                            clx.getDeporte3();
-                            //Activar o desactivar
-                            clx.setEstaddo3(JOptionPane.showInputDialog("Activar deporte? S/N"));
-                            String estadoBask = clx.getEstaddo3();
-
-                            switch (estadoBask) {
-
-                                case "S":
-                                    JOptionPane.showMessageDialog(null, "Deporte Basketball Activado en su cuenta\n");
-                                    break;
-
-                                case "N":
-                                    JOptionPane.showMessageDialog(null, "Estado Desactivado");
-
-                                    break;
-
-                                default:
-                                    // Opción no válida
-
-                                    JOptionPane.showMessageDialog(null, "Opción no válida");
-                                    break;
-
-                            }
-
-                            break;
-                    }
-
-            
-
-                    continuar = false;
-                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
-                    break;
-
-                case 5:
-
-                    JOptionPane.showMessageDialog(null, "Bienvenido al Catálogo de Rutinas\n");
-
-                    agreconsul.setAgregarConsultar(JOptionPane.showInputDialog(null,"En esta seccion puede agregar y consultar información A/C \n A: Agregar \n C: Consultar").charAt(0));
-                    JOptionPane.showMessageDialog(null, "Bienvenido al Catálogo de Rutinasl\n");
-
-                    CatalogoRutinas cl1 = new CatalogoRutinas();
-                    cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de usuario: "));
-                    cl1.setContraseña(JOptionPane.showInputDialog("Ingrese su contaseña: "));
-                    cl1.setDeporte(Integer.parseInt(JOptionPane.showInputDialog("Seleccione el deporte al que va ingresar \n1- Futball\n2- Basketball \n3- Volleyball")));
-                    int deporte = cl1.getDeporte();
-                    switch (deporte) {
-
-                        case 0:
-
-                            break;
-
-                        case 1:
-                            JOptionPane.showMessageDialog(null, "Bienvenido a la Rutina de Futball\n");
-                            cl1.getRutina();
-                            break;
-
-                        case 2:
-                            JOptionPane.showMessageDialog(null, "Bienvenido a la rutina de Basketball\n");
-                            cl1.getRutina2();
-                            break;
-
-                        case 3:
-                            JOptionPane.showMessageDialog(null, "Bienvenido a la rutina de Volleybal\n");
-                            cl1.getRutina3();
-
-                            break;
-
-                        default:
-                            // Opción no válida
-
-                            JOptionPane.showMessageDialog(null, "Opción no válida");
-                            break;
-
-                    }
-
-                    continuar = false;
-                    break;
+        
+        while (continuar) { 
+            try {
+                byte opcion = Byte.parseByte(JOptionPane.showInputDialog(null, """
+                    ***MENÚ PRINCIPAL***
+
+                    1.Catálogo de Deportistas
+                    2.Catálogo de Padres
+                    3.Catálogo de Deportes
+                    4.Catálogo de Rutinas
+                    5.Facturación
+                    0.Salir
+
+                    Digite su opción:"""
+                ));
                 
-                case 6:
-                    
-                    Facturacion clr = new Facturacion();
-                    clr.setMes(JOptionPane.showInputDialog("Ingrese Mes de Pago"));
-                    clr.setDeporte(JOptionPane.showInputDialog("Ingrese Deporte activos"));
-                    clr.setPago(Integer.parseInt(JOptionPane.showInputDialog("Ingrese monto a pagar")));
-                    JOptionPane.showMessageDialog(null, "Gracias Por su pago");
-
-                    continuar = false;
-                    break;    
-                
-                default:
-                    // Opción no válida
-
-                    JOptionPane.showMessageDialog(null, "Opción no válida");
-                    break;
+                switch (opcion) {
+                    case 1:
+                        r.SubmenuDeportista();
+                        break;
+                    case 2:
+                        r.SubmenuPadre();
+                        break;
+                    case 3:
+                        r.SubMenuDeportes();
+                        break;
+                    case 4:
+                        r.SubMenuRutina();
+                        break;
+                    case 5:
+                        r.SubMenuFacturacion();
+                        break;
+                    case 0:
+                        continuar = false; // Salir del bucle
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null,"¡Opción incorrecta!");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null,"Ingrese un número válido.");
             }
         }
     }
-}
 }

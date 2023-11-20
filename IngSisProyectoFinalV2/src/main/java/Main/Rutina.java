@@ -15,62 +15,135 @@ public class Rutina {
     // Info De Deportes
     private CatalogoDeporte deps[] = new CatalogoDeporte[10];
     private int s = 0;
-    
+
     // Registro usuario
     private RegistroUsuarios usuario[] = new RegistroUsuarios[10];
     private int indi = 0;
-    
+
     // registro deportista
-    
-    static private CatalogoDeportista catDeporAll[]=new CatalogoDeportista[10]; 
-    
-    
-    //Facturacion
+    static private CatalogoDeportista catDeporAll[] = new CatalogoDeportista[10];
+
     private Facturacion pagos[] = new Facturacion[10];
-    
-    public void SubMenuFacturacion(){
-    
-        Facturacion fact = new Facturacion();
-        JOptionPane.showMessageDialog(null, "Menu de Facturacion");
-        String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
-        
-        CatalogoDeporte usu = null;
-        for (CatalogoDeporte dep : deps) {
-        if (dep != null && dep.getNombreUsuario().equals(nombreUsuario)) {
-        
-        JOptionPane.showMessageDialog(null, "Usuario Registrado");
-        
-        
-       JOptionPane.showMessageDialog(null,dep.getEstaddo1());
-        
-        
-        break;
-    }else{
-            JOptionPane.showMessageDialog(null, "Usuario No encontrado");
-            break;
+    private int numFacturas = 0;
+
+    public void SubMenuFacturacion() {
+
+        boolean continuar = true;
+
+        while (continuar) {
+
+            char seleccion = JOptionPane.showInputDialog("1-Hacer factura Nueva \n 2- Consultar Facturas \n 3- Salir").charAt(0);
+            switch (seleccion) {
+
+                case '1':
+
+                    continuar = true;
+
+                    Facturacion fact = new Facturacion();
+                    JOptionPane.showMessageDialog(null, "Menú de Facturación");
+                    String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
+
+                    CatalogoDeporte usu = null;
+                    for (CatalogoDeporte dep : deps) {
+                        if (dep != null && dep.getNombreUsuario().equals(nombreUsuario)) {
+
+                            fact.setNombre(dep.getNombreUsuario());
+                            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+
+                            fact.setDeporte(dep.getEstaddo1());
+                            double costo = 0;
+
+                            switch (fact.getDeporte()) {
+                                case "Deporte futball agregado":
+                                    JOptionPane.showMessageDialog(null, "Cobro de $500");
+                                    costo = 500;
+                                    fact.setCosto(500);
+                                    break;
+                                case "Deporte Basketball agregado":
+                                    JOptionPane.showMessageDialog(null, "Cobro de $1000");
+                                    costo = 1000;
+                                    fact.setCosto(1000);
+                                    break;
+                                case "Deporte Volleyball agregado":
+                                    JOptionPane.showMessageDialog(null, "Cobro de $1500");
+                                    costo = 1500;
+                                    fact.setCosto(1500);
+                                    break;
+                                default:
+                                    JOptionPane.showMessageDialog(null, "Deporte no válido");
+                                    return; // Salir del método si el deporte no es válido
+                            }
+
+                            fact.setFecha(JOptionPane.showInputDialog("Ingrese la fecha (Ejemplo: 2023-11-20)"));
+                            fact.setHora(JOptionPane.showInputDialog("Ingrese la hora (Ejemplo: 14:30)"));
+                            fact.setPagoRealizado(JOptionPane.showInputDialog("¿Se realizó el pago? (Si/No)"));
+
+                            if (numFacturas < pagos.length) {
+
+                                pagos[numFacturas] = fact;
+                                numFacturas++;
+
+                                /*private String Mes;
+        private String Deporte;
+        private int Pago;
+        private String Nombre;
+        private String Fecha;
+        private String Hora;
+        private String Rutina;*/
+                                JOptionPane.showMessageDialog(null, "Factura Guardada"
+                                        + "\nUsuario: " + fact.getNombre() + "\n"
+                                        + "Deporte: " + fact.getDeporte() + "\n"
+                                        + "Costo: " + fact.getCosto() + "\n"
+                                        + "Fecha: " + fact.getFecha() + "\n"
+                                        + "Hora: " + fact.getHora() + "\n"
+                                        + "Pago Realizado?: " + fact.getPagoRealizado() + "\n");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "No se pueden guardar más facturas. El arreglo está lleno.");
+                            }
+                            break;
+                        }
+                    }
+
+                    if (usu == null) {
+                        JOptionPane.showMessageDialog(null, "Usuario No encontrado");
+                    }
+
+                case '2':
+
+                    for (int i = 0; i < numFacturas; i++) {
+                        fact = pagos[i];
+                        JOptionPane.showMessageDialog(null, "Factura Guardada"
+                                + "\nUsuario: " + fact.getNombre() + "\n"
+                                + "Deporte: " + fact.getDeporte() + "\n"
+                                + "Costo: " + fact.getCosto() + "\n"
+                                + "Fecha: " + fact.getFecha() + "\n"
+                                + "Hora: " + fact.getHora() + "\n"
+                                + "Pago Realizado?: " + fact.getPagoRealizado() + "\n");
+
+                    }
+                    break;
+
+                case '3':
+
+                    JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
+                    continuar = false;
+break;
+            }break;
+
         }
-}
-    
-    
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-     public void SubmenuDeportista(){
-        
+
+    public void SubmenuDeportista() {
+
         boolean continuarDeportista = true;
         boolean existeDeportista = false;
         int x;
         int indice;
-        
+
         indice = 0;
-      
-        while(continuarDeportista){
+
+        while (continuarDeportista) {
 
             char seleccionDeportista = (JOptionPane.showInputDialog("1- Agregar Deportista\n2- Consultar lista de Deportista\n0- Salir").charAt(0));
 
@@ -92,7 +165,7 @@ public class Rutina {
                     catDepor.setCorreoDeportista(JOptionPane.showInputDialog(null, "Digite el correo del deportista:"));
                     catDepor.setEstadoDeportista(JOptionPane.showInputDialog(null, "Digite el estado del deportista:"));
 
-                    catDeporAll[0]=catDepor;
+                    catDeporAll[0] = catDepor;
                     existeDeportista = true;
                     indice = indice + 1;
 
@@ -103,50 +176,46 @@ public class Rutina {
 
                     JOptionPane.showMessageDialog(null, catDeporAll.length);
 
-                    if(existeDeportista){
+                    if (existeDeportista) {
 
-                        for(x=0;x<catDeporAll.length;x++){
+                        for (x = 0; x < catDeporAll.length; x++) {
 
-                            JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del deportista, aquí están los datos:" +
-                                "\nIdentificación: " + catDeporAll[x].getIdentificacionDeportista() + "\n" + 
-                                "Nombre del niño: " + catDeporAll[x].getNombreCompletoDeportista() + "\n" +
-                                "Ciudad: " + catDeporAll[x].getCiudadDeportista() + "\n" +
-                                "Dirección: " + catDeporAll[x].getDireccionDeportista() + "\n" +
-                                "Teléfono: " + catDeporAll[x].getTelefonoDeportista() + "\n" +
-                                "Correo: " + catDeporAll[x].getCorreoDeportista() + "\n" +
-                                "Estado: " + catDeporAll[x].getEstadoDeportista() + "\n");
+                            JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del deportista, aquí están los datos:"
+                                    + "\nIdentificación: " + catDeporAll[x].getIdentificacionDeportista() + "\n"
+                                    + "Nombre del niño: " + catDeporAll[x].getNombreCompletoDeportista() + "\n"
+                                    + "Ciudad: " + catDeporAll[x].getCiudadDeportista() + "\n"
+                                    + "Dirección: " + catDeporAll[x].getDireccionDeportista() + "\n"
+                                    + "Teléfono: " + catDeporAll[x].getTelefonoDeportista() + "\n"
+                                    + "Correo: " + catDeporAll[x].getCorreoDeportista() + "\n"
+                                    + "Estado: " + catDeporAll[x].getEstadoDeportista() + "\n");
                         }
 
-                    }else{
+                    } else {
 
                         JOptionPane.showMessageDialog(null, "No existen deportistas en el catálogo, debes crear uno");
 
                     }
 
                     break;
-                    
-                default:{
-                   JOptionPane.showMessageDialog(null,"¡Opción incorrecta!");
+
+                default: {
+                    JOptionPane.showMessageDialog(null, "¡Opción incorrecta!");
                 }
-                    
+
             }
-            
-            
 
         }
-    
-     }
-    
-    
-    
-    public void SubmenuRegistro(){
-       boolean continuar = true;
-       while(continuar){
-           RegistroUsuarios catRegistro = new RegistroUsuarios();
-        char seleccion = JOptionPane.showInputDialog("1-Agregar Usuario nuevo \n 2- Consultar lista de usuarios \n 3- Salir").charAt(0);
-        switch (seleccion) {
 
-                case'1':
+    }
+
+    public void SubmenuRegistro() {
+        boolean continuar = true;
+        while (continuar) {
+            RegistroUsuarios catRegistro = new RegistroUsuarios();
+            char seleccion = JOptionPane.showInputDialog("1-Agregar Usuario nuevo \n 2- Consultar lista de usuarios \n 3- Salir").charAt(0);
+            switch (seleccion) {
+
+                case '1':
 
                     continuar = true;
                     catRegistro.setNombre(JOptionPane.showInputDialog(null, "Digite el nombre:"));
@@ -154,40 +223,37 @@ public class Rutina {
                     catRegistro.setSegundoApellido(JOptionPane.showInputDialog(null, "Digite su segundo apellido:"));
                     catRegistro.setContraseña(JOptionPane.showInputDialog(null, "Digite su contraseña:"));
                     if (indi < usuario.length) {
-                    usuario[indi] = catRegistro;
-                    indi++; // Incrementa el índice
-                    JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos de tu nuevo usuario, aquí están los datos:" +
-                        "Nombre: " + catRegistro.getNombre()+ "\n" +
-                        "Primer apellido: " + catRegistro.getPrimerApellido() + "\n" +
-                        "Segundo apellido: " + catRegistro.getSegundoApellido()+ "\n" +
-                        "Contraseña: " + catRegistro.getContraseña());
+                        usuario[indi] = catRegistro;
+                        indi++; // Incrementa el índice
+                        JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos de tu nuevo usuario, aquí están los datos:"
+                                + "Nombre: " + catRegistro.getNombre() + "\n"
+                                + "Primer apellido: " + catRegistro.getPrimerApellido() + "\n"
+                                + "Segundo apellido: " + catRegistro.getSegundoApellido() + "\n"
+                                + "Contraseña: " + catRegistro.getContraseña());
 
-                 }else {
-                    JOptionPane.showMessageDialog(null, "El inventario está lleno. No se pueden agregar más elementos.");
-                }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El inventario está lleno. No se pueden agregar más elementos.");
+                    }
 
-                break;
-               
-              case '2':
-                for (int y = 0; y < indi; y++) {
-                   catRegistro= usuario[y];
-                     JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos de tu nuevo usuario, aquí están los datos:" +
-                        "Nombre: " + catRegistro.getNombre()+ "\n" +
-                        "Primer apellido: " + catRegistro.getPrimerApellido() + "\n" +
-                        "Segundo apellido: " + catRegistro.getSegundoApellido()+ "\n" +
-                        "Contraseña: " + catRegistro.getContraseña());
-                }
-                break;
-                
-              case '3': 
-                  continuar = false;
-                
-                
-         }
-       }
+                    break;
+
+                case '2':
+                    for (int y = 0; y < indi; y++) {
+                        catRegistro = usuario[y];
+                        JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos de tu nuevo usuario, aquí están los datos:"
+                                + "Nombre: " + catRegistro.getNombre() + "\n"
+                                + "Primer apellido: " + catRegistro.getPrimerApellido() + "\n"
+                                + "Segundo apellido: " + catRegistro.getSegundoApellido() + "\n"
+                                + "Contraseña: " + catRegistro.getContraseña());
+                    }
+                    break;
+
+                case '3':
+                    continuar = false;
+
+            }
+        }
     }
-    
-
 
     public void SubmenuPadre() {
 
@@ -275,7 +341,6 @@ public class Rutina {
                     switch (deporte) {
 
                         case 1:
-                            
 
                             JOptionPane.showMessageDialog(null, "Bienvenido a la Rutina de Futball\n");
                             cl1.getRutina();
@@ -283,13 +348,9 @@ public class Rutina {
 
                             cl1.setEstado(est.charAt(0));
                             cl1.setRut("Rutina de futball agregada");
-                            
-                                
-                                
+
                             cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
-                                
-                            
-                            
+
                             if (cl1.getEstado() == 'S') {
                                 if (x < rutinas.length) {
                                     rutinas[x] = cl1;
@@ -409,15 +470,15 @@ public class Rutina {
                                     s++;
                                     JOptionPane.showMessageDialog(null, "Deporte Futball Agregado\n"
                                             + "Usuario: " + clx.getNombreUsuario() + "\n"
-                                            + clx.getEstaddo1() + "\n"+ "Activado?: " + clx.getEstadoFut());
+                                            + clx.getEstaddo1() + "\n" + "Activado?: " + clx.getEstadoFut());
 
                                 } else {
                                     continuar = false;
                                 }
                             }
                             break;
-                            
-                            case 2:
+
+                        case 2:
                             JOptionPane.showMessageDialog(null, "Bienvenido al deporte de Basketball\n");
                             clx.getDeporte3();
                             //Activar o desactivar
@@ -432,14 +493,14 @@ public class Rutina {
                                     s++;
                                     JOptionPane.showMessageDialog(null, "Deporte Basketball Agregado\n"
                                             + "Usuario: " + clx.getNombreUsuario() + "\n"
-                                            + clx.getEstaddo1() + "\n"+ "Activado?: " + clx.getEstadoFut());
+                                            + clx.getEstaddo1() + "\n" + "Activado?: " + clx.getEstadoFut());
 
                                 } else {
                                     continuar = false;
                                 }
                             }
                             break;
-                            case 3:
+                        case 3:
                             JOptionPane.showMessageDialog(null, "Bienvenido al deporte de Volleyball\n");
                             clx.getDeporte2();
                             //Activar o desactivar
@@ -454,36 +515,33 @@ public class Rutina {
                                     s++;
                                     JOptionPane.showMessageDialog(null, "Deporte Volleyball Agregado\n"
                                             + "Usuario: " + clx.getNombreUsuario() + "\n"
-                                             + clx.getEstaddo1() + "\n"+ "Activado?: " + clx.getEstadoFut());
+                                            + clx.getEstaddo1() + "\n" + "Activado?: " + clx.getEstadoFut());
 
                                 } else {
                                     continuar = false;
                                 }
                             }
                             break;
-                            
-                            
-                            
+
                     }
                     break;
 
-                  case '2':
-                continuar = true;
-                for (int y = 0; y < s; y++) {
-                    clx = deps[y];
-                    JOptionPane.showMessageDialog(null, "Datos del "
-                            + "Usuario: " + deps[y].getNombreUsuario() + "\n"
-                            + "Activo: " + deps[y].getEstaddo1() + "\n" + "Activado?: " + deps[y].getEstadoFut());
-                }
-                break;
+                case '2':
+                    continuar = true;
+                    for (int y = 0; y < s; y++) {
+                        clx = deps[y];
+                        JOptionPane.showMessageDialog(null, "Datos del "
+                                + "Usuario: " + deps[y].getNombreUsuario() + "\n"
+                                + "Activo: " + deps[y].getEstaddo1() + "\n" + "Activado?: " + deps[y].getEstadoFut());
+                    }
+                    break;
 
-            case '3':
-                JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
-                continuar = false;
-                break;
+                case '3':
+                    JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
+                    continuar = false;
+                    break;
+            }
         }
     }
+
 }
-
-    }
-

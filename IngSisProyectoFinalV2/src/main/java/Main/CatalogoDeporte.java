@@ -9,12 +9,11 @@ public class CatalogoDeporte {
  private String Estaddo3;
  private String Deporte2;
  private String Deporte3;
-<<<<<<< Updated upstream
-=======
+
  private int OpcDeporte;
  private char estadoFut;
  private String NombreUsuario;
->>>>>>> Stashed changes
+
 
     public CatalogoDeporte() {
         this.Deporte1 = "";
@@ -72,19 +71,17 @@ public class CatalogoDeporte {
     }
 
     public String getDeporte3() {
-         JOptionPane.showMessageDialog(null, "Bienvenido a Basketball\nCaracteristicas: \nCanasta y pelota: El baloncesto se juega con una pelota que los jugadores intentan encestar en una canasta elevada. El objetivo es anotar puntos al encestar la pelota en la canasta del equipo contrario.."
-                 + "\Cinco jugadores en la cancha: Cada equipo tiene cinco jugadores en la cancha a la vez, que desempeñan roles específicos, como bases, escoltas, aleros, alas-pívots y pívots."
-         + 
-                 + "\Tiempo limitado y posesión de balón: El baloncesto se juega en períodos de tiempo limitado (generalmente 4 cuartos de 12 minutos en la NBA). Cada equipo tiene una posesión de balón para atacar antes de que se agote el tiempo de posesión, lo que fomenta un juego rápido y estratégico..\n");   
-      
+         JOptionPane.showMessageDialog(null, "Bienvenido a Basketball\nCaracterísticas:\nCanasta y pelota: El baloncesto se juega con una pelota que los jugadores intentan encestar en una canasta elevada. El objetivo es anotar puntos al encestar la pelota en la canasta del equipo contrario."
+            + "\nCinco jugadores en la cancha: Cada equipo tiene cinco jugadores en la cancha a la vez, que desempeñan roles específicos, como bases, escoltas, aleros, alas-pívots y pívots."
+            + "\nTiempo limitado y posesión de balón: El baloncesto se juega en períodos de tiempo limitado (generalmente 4 cuartos de 12 minutos en la NBA). Cada equipo tiene una posesión de balón para atacar antes de que se agote el tiempo de posesión, lo que fomenta un juego rápido y estratégico.");
+
         return Deporte3;
     }
-
+ 
     public void setDeporte3(String Deporte3) {
         this.Deporte3 = Deporte3;
     }
-<<<<<<< Updated upstream
-=======
+
 
     public int getOpcDeporte() {
         return OpcDeporte;
@@ -109,7 +106,5 @@ public class CatalogoDeporte {
     public void setNombreUsuario(String NombreUsuario) {
         this.NombreUsuario = NombreUsuario;
     }
->>>>>>> Stashed changes
- 
- 
+
 }

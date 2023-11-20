@@ -9,8 +9,7 @@ package Main;
  * @author braym
  */
 public class Facturacion {
-<<<<<<< Updated upstream
-=======
+
     private String Mes;
     private String Deporte;
     private int Pago;
@@ -18,7 +17,8 @@ public class Facturacion {
     private String Fecha;
     private String Hora;
     private String Rutina;
-   
+    private double Costo;
+    private String pagoRealizado;
     
     
     
@@ -32,6 +32,8 @@ public class Facturacion {
         this.Fecha = "";
         this.Hora = "";
         this.Rutina = "";
+        this.Costo = 0.00;
+        this.pagoRealizado="";
     }
 
     public String getMes() {
@@ -89,8 +91,24 @@ public class Facturacion {
     public void setRutina(String Rutina) {
         this.Rutina = Rutina;
     }
+
+    public double getCosto() {
+        return Costo;
+    }
+
+    public void setCosto(double Costo) {
+        this.Costo = Costo;
+    }
+
+    public String getPagoRealizado() {
+        return pagoRealizado;
+    }
+
+    public void setPagoRealizado(String pagoRealizado) {
+        this.pagoRealizado = pagoRealizado;
+    }
     
     
->>>>>>> Stashed changes
+
     
 }
