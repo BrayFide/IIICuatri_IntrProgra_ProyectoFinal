@@ -43,7 +43,6 @@ public class CatalogoDeportista {
     }
 
     public void setIdentificacionDeportista(String identificacionDeportista) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si existe ya un deportista con esa identificación");   
         this.identificacionDeportista = identificacionDeportista;
     }
     
@@ -84,7 +83,6 @@ public class CatalogoDeportista {
     }
 
     public void setCorreoDeportista(String correoDeportista) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si el dato ingresado es un correo");
         this.correoDeportista = correoDeportista;
     }
     
