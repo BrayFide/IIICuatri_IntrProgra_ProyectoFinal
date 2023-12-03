@@ -51,7 +51,6 @@ public class CatalogoPadre {
     }
 
     public void setNombreNinoPadre(String nombreNinoPadre) {
-        JOptionPane.showMessageDialog(null, "Aquí saldrá una lista de deportistas ya registrados");   
         this.nombreNinoPadre = nombreNinoPadre;
     }
     
@@ -84,7 +83,6 @@ public class CatalogoPadre {
     }
 
     public void setCorreoPadre(String correoPadre) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si el dato ingresado es un correo");   
         this.correoPadre = correoPadre;
     }
     
