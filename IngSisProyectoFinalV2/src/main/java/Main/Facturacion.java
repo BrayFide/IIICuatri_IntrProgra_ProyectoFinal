@@ -9,5 +9,5 @@ package Main;
  * @author braym
  */
 public class Facturacion {
-    
+    /*resultado*/
 }
