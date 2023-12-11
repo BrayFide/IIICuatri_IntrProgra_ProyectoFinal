@@ -3,7 +3,7 @@ package Main;
 import javax.swing.JOptionPane;
 
 public class CatalogoDeportista {
-    
+    private String Usuario;
     private String identificacionDeportista;
     private String nombreCompletoDeportista;
     private String ciudadDeportista;
@@ -20,6 +20,7 @@ public class CatalogoDeportista {
         this.telefonoDeportista = "";
         this.correoDeportista = "";
         this.estadoDeportista = "";
+        this.Usuario = "";
     }
     
     public String getIdentificacionDeportista() {   
@@ -27,7 +28,7 @@ public class CatalogoDeportista {
     }
 
     public void setIdentificacionDeportista(String identificacionDeportista) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si existe ya un deportista con esa identificación");   
+           
         this.identificacionDeportista = identificacionDeportista;
     }
     
@@ -68,7 +69,7 @@ public class CatalogoDeportista {
     }
 
     public void setCorreoDeportista(String correoDeportista) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si el dato ingresado es un correo");
+        
         this.correoDeportista = correoDeportista;
     }
     
@@ -78,5 +79,13 @@ public class CatalogoDeportista {
 
     public void setEstadoDeportista(String estadoDeportista) {
         this.estadoDeportista = estadoDeportista;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
     }
 }
