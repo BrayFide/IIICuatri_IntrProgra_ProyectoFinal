@@ -12,12 +12,13 @@ public class Menu {
             try {
                 byte opcion = Byte.parseByte(JOptionPane.showInputDialog(null, """
                     ***MENÚ PRINCIPAL***
+                    1.Registro de Usuario
 
-                    1.Catálogo de Deportistas
-                    2.Catálogo de Padres
-                    3.Catálogo de Deportes
-                    4.Catálogo de Rutinas
-                    5.Facturación
+                    2.Catálogo de Deportistas
+                    3.Catálogo de Padres
+                    4.Catálogo de Deportes
+                    5.Catálogo de Rutinas
+                    6.Facturación
                     0.Salir
 
                     Digite su opción:"""
@@ -25,18 +26,22 @@ public class Menu {
                 
                 switch (opcion) {
                     case 1:
+                        r.SubmenuRegistro();
+                        break;
+                    
+                    case 2:
                         r.SubmenuDeportista();
                         break;
-                    case 2:
+                    case 3:
                         r.SubmenuPadre();
                         break;
-                    case 3:
+                    case 4:
                         r.SubMenuDeportes();
                         break;
-                    case 4:
+                    case 5:
                         r.SubMenuRutina();
                         break;
-                    case 5:
+                    case 6:
                         r.SubMenuFacturacion();
                         break;
                     case 0:

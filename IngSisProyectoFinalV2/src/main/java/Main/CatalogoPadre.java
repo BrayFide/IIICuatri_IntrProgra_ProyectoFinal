@@ -3,7 +3,7 @@ package Main;
 import javax.swing.JOptionPane;
 
 public class CatalogoPadre {
-    
+    private String Usuario;
     private String nombreCompletoPadre;
     private String nombreNinoPadre;
     private String ciudadPadre;
@@ -20,6 +20,7 @@ public class CatalogoPadre {
         this.telefonoPadre = "";
         this.correoPadre = "";
         this.estadoPadre = "";
+        this.Usuario = "";
     }
     
     public String getNombreCompletoPadre() {   
@@ -35,7 +36,7 @@ public class CatalogoPadre {
     }
 
     public void setNombreNinoPadre(String nombreNinoPadre) {
-        JOptionPane.showMessageDialog(null, "Aquí saldrá una lista de deportistas ya registrados");   
+           
         this.nombreNinoPadre = nombreNinoPadre;
     }
     
@@ -68,7 +69,7 @@ public class CatalogoPadre {
     }
 
     public void setCorreoPadre(String correoPadre) {
-        JOptionPane.showMessageDialog(null, "Aquí se validará si el dato ingresado es un correo");   
+        
         this.correoPadre = correoPadre;
     }
     
@@ -78,6 +79,14 @@ public class CatalogoPadre {
 
     public void setEstadoPadre(String estadoPadre) {
         this.estadoPadre = estadoPadre;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
     }
     
 }

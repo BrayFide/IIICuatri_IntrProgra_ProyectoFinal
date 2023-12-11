@@ -21,7 +21,8 @@ public class Rutina {
     private int indi = 0;
 
     // registro deportista
-    static private CatalogoDeportista catDeporAll[] = new CatalogoDeportista[10];
+    private CatalogoDeportista catDeporAll[] = new CatalogoDeportista[10];
+    private int nuevo = 0;
 
     private Facturacion pagos[] = new Facturacion[10];
     private int numFacturas = 0;
@@ -109,6 +110,7 @@ public class Rutina {
                     }
 
                 case '2':
+                    if (numFacturas > 0) {
 
                     for (int i = 0; i < numFacturas; i++) {
                         fact = pagos[i];
@@ -121,7 +123,10 @@ public class Rutina {
                                 + "Pago Realizado?: " + fact.getPagoRealizado() + "\n");
 
                     }
-                    break;
+                    break;}else {
+
+                        JOptionPane.showMessageDialog(null, "No existen usuarios en el catálogo, debes crear uno");
+                    }
 
                 case '3':
 
@@ -154,9 +159,21 @@ break;
 
                 case '1':
                     continuarDeportista = true;
-
-                    //Datos de la cuenta en la clase #2
                     CatalogoDeportista catDepor = new CatalogoDeportista();
+                    String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
+
+                    RegistroUsuarios usu = null;
+                    for (RegistroUsuarios dep : usuario) {
+                       
+                    
+                        if (dep != null && dep.getNombre().equals(nombreUsuario)) {
+                            catDepor.setUsuario(dep.getNombre());
+                            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+                        
+
+
+                    //Datos de la cuenta en la clase #2  private CatalogoDeportista catDeporAll[] = new CatalogoDeportista[10]; private int nuevo = 0;
+                    
                     catDepor.setIdentificacionDeportista(JOptionPane.showInputDialog(null, "Digite el identificación del deportista:"));
                     catDepor.setNombreCompletoDeportista(JOptionPane.showInputDialog(null, "Digite el nombre completo del deportista:"));
                     catDepor.setCiudadDeportista(JOptionPane.showInputDialog(null, "Digite la ciudad del deportista:"));
@@ -164,23 +181,43 @@ break;
                     catDepor.setTelefonoDeportista(JOptionPane.showInputDialog(null, "Digite el teléfono del deportista:"));
                     catDepor.setCorreoDeportista(JOptionPane.showInputDialog(null, "Digite el correo del deportista:"));
                     catDepor.setEstadoDeportista(JOptionPane.showInputDialog(null, "Digite el estado del deportista:"));
-
-                    catDeporAll[0] = catDepor;
                     existeDeportista = true;
-                    indice = indice + 1;
 
+                     if (nuevo < catDeporAll.length) {
+                        catDeporAll[nuevo] = catDepor;
+                        nuevo++; // Incrementa el índice
+                        JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del usuario: "+catDepor.getUsuario()+", aquí están los datos:"
+                                 + "Identificacion: " + catDepor.getIdentificacionDeportista() + "\n"
+                                + "Nombre Comleto: " + catDepor.getNombreCompletoDeportista() + "\n"
+                                + "Ciudad: " + catDepor.getCiudadDeportista() + "\n"
+                                + "Direccion: " + catDepor.getDireccionDeportista() + "\n"
+                                + "Telefono: " + catDepor.getTelefonoDeportista()
+                        + "Correo: " + catDepor.getCorreoDeportista() + "\n"
+                                    + "Correo: " + catDepor.getEstadoDeportista() + "\n");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El inventario está lleno. No se pueden agregar más elementos.");
+                    }
+
+                   
+                        }
+                    }if (usu == null) {
+                        JOptionPane.showMessageDialog(null, "Usuario No encontrado");
+                    }
                     break;
 
                 case '2':
                     continuarDeportista = true;
 
-                    JOptionPane.showMessageDialog(null, catDeporAll.length);
+                    
 
-                    if (existeDeportista) {
+                    if (nuevo>0) {
 
-                        for (x = 0; x < catDeporAll.length; x++) {
+                        for (x = 0; x < nuevo; x++) {
+                        catDepor= catDeporAll[x];
 
-                            JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del deportista, aquí están los datos:"
+                            JOptionPane.showMessageDialog(null, "Has"
+                                    + " introducido correctamente los datos del deportista, aquí están los datos:"
                                     + "\nIdentificación: " + catDeporAll[x].getIdentificacionDeportista() + "\n"
                                     + "Nombre del niño: " + catDeporAll[x].getNombreCompletoDeportista() + "\n"
                                     + "Ciudad: " + catDeporAll[x].getCiudadDeportista() + "\n"
@@ -238,6 +275,7 @@ break;
                     break;
 
                 case '2':
+                    if (indi > 0) {
                     for (int y = 0; y < indi; y++) {
                         catRegistro = usuario[y];
                         JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos de tu nuevo usuario, aquí están los datos:"
@@ -246,7 +284,9 @@ break;
                                 + "Segundo apellido: " + catRegistro.getSegundoApellido() + "\n"
                                 + "Contraseña: " + catRegistro.getContraseña());
                     }
-                    break;
+                    break;}else {
+
+                        JOptionPane.showMessageDialog(null, "No existen usuarios en el catálogo, debes crear uno");}
 
                 case '3':
                     continuar = false;
@@ -258,6 +298,7 @@ break;
     public void SubmenuPadre() {
 
         boolean continuar = true;
+        boolean existeDeportista = false;
 
         while (continuar) {
             CatalogoPadre catPadre = new CatalogoPadre();
@@ -267,6 +308,15 @@ break;
                 case '1':
 
                     continuar = true;
+                    String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
+
+                    RegistroUsuarios usu = null;
+                    for (RegistroUsuarios dep : usuario) {
+                       
+                    
+                        if (dep != null && dep.getNombre().equals(nombreUsuario)) {
+                            catPadre.setUsuario(dep.getNombre());
+                            JOptionPane.showMessageDialog(null, "Usuario Registrado");
 
                     //Datos de la cuenta en la clase #2
                     catPadre.setNombreCompletoPadre(JOptionPane.showInputDialog(null, "Digite el nombre completo del padre:"));
@@ -276,11 +326,13 @@ break;
                     catPadre.setTelefonoPadre(JOptionPane.showInputDialog(null, "Digite el teléfono del padre:"));
                     catPadre.setCorreoPadre(JOptionPane.showInputDialog(null, "Digite el correo del padre:"));
                     catPadre.setEstadoPadre(JOptionPane.showInputDialog(null, "Digite el estado del padre:"));
+                    existeDeportista = true;
 
                     if (indice < inventario.length) {
                         inventario[indice] = catPadre;
                         indice++; // Incrementa el índice
                         JOptionPane.showMessageDialog(null, "Has introducido correctamente los datos del padre, aquí están los datos:"
+                                + "Usuario: " + catPadre.getUsuario() + "\n"
                                 + "Nombre: " + catPadre.getNombreCompletoPadre() + "\n"
                                 + "Nombre del niño: " + catPadre.getNombreNinoPadre() + "\n"
                                 + "Ciudad: " + catPadre.getCiudadPadre() + "\n"
@@ -291,10 +343,15 @@ break;
                     } else {
                         JOptionPane.showMessageDialog(null, "El inventario está lleno. No se pueden agregar más elementos.");
                     }
+                        }
+                    }if (usu == null) {
+                        JOptionPane.showMessageDialog(null, "Usuario No encontrado");}
 
                     break;
 
                 case '2':
+                    if (indice > 0) {
+                    
                     // Display the information of all CatalogoPadre objects in inventario
                     for (int i = 0; i < indice; i++) {
                         catPadre = inventario[i];
@@ -307,8 +364,11 @@ break;
                                 + "Correo: " + catPadre.getCorreoPadre() + "\n"
                                 + "Estado: " + catPadre.getEstadoPadre() + "\n");
                     }
-                    break;
+                    break;}
+                   else {
 
+                        JOptionPane.showMessageDialog(null, "No existen usuarios en el catálogo, debes crear uno");
+                    }
                 case '3':
 
                     JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
@@ -334,7 +394,19 @@ break;
             switch (seleccion) {
 
                 case '1':
+                    
+                    
                     continuar = true;
+                    String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
+
+                    RegistroUsuarios usu = null;
+                    for (RegistroUsuarios dep : usuario) {
+                       
+                    
+                        if (dep != null && dep.getNombre().equals(nombreUsuario)) {
+                            cl1.setNombreUsuario(dep.getNombre());
+                            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+                    
                     cl1.setDeporte(Integer.parseInt(JOptionPane.showInputDialog("Seleccione el deporte al que va ingresar \n1- Futball\n2- Basketball \n3- Volleyball")));
                     int deporte = cl1.getDeporte();
 
@@ -349,7 +421,7 @@ break;
                             cl1.setEstado(est.charAt(0));
                             cl1.setRut("Rutina de futball agregada");
 
-                            cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (cl1.getEstado() == 'S') {
                                 if (x < rutinas.length) {
@@ -372,7 +444,7 @@ break;
 
                             cl1.setEstado(est2.charAt(0));
                             cl1.setRut("Rutina de Basketball agregada");
-                            cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (cl1.getEstado() == 'S') {
                                 if (x < rutinas.length) {
@@ -394,7 +466,7 @@ break;
 
                             cl1.setEstado(est3.charAt(0));
                             cl1.setRut("Rutina de Volleyball agregada");
-                            cl1.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (cl1.getEstado() == 'S') {
                                 if (x < rutinas.length) {
@@ -411,8 +483,13 @@ break;
                             break;
                     }
                     break;
+                        }
+                    }if (usu == null) {
+                        JOptionPane.showMessageDialog(null, "Usuario No encontrado");}
 
                 case '2':
+                    
+                    if (x > 0) {
 
                     for (int b = 0; b < x; b++) {
 
@@ -422,7 +499,10 @@ break;
                                 + "Activo: " + rutinas[b].getEstado() + "\n" + "Rutina: " + rutinas[b].getRut());
                     }
 
-                    break;
+                    break;}else {
+
+                        JOptionPane.showMessageDialog(null, "No existen usuarios registrados en el catálogo, debes crear uno");
+                    }
 
                 case '3':
                     JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
@@ -439,6 +519,7 @@ break;
         /* private CatalogoDeporte deps[] = new CatalogoDeporte[10];
     private int s = 0;*/
         boolean continuar = true;
+        boolean existeDeportista = false;
 
         while (continuar == true) {
 
@@ -450,6 +531,16 @@ break;
             switch (seleccion) {
 
                 case '1':
+                    String nombreUsuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario:");
+
+                    RegistroUsuarios usu = null;
+                    for (RegistroUsuarios dep : usuario) {
+                       
+                    
+                        if (dep != null && dep.getNombre().equals(nombreUsuario)) {
+                            clx.setNombreUsuario(dep.getNombre());
+                            JOptionPane.showMessageDialog(null, "Usuario Registrado");
+                            existeDeportista = true;
 
                     continuar = true;
                     int deporte = (Integer.parseInt(JOptionPane.showInputDialog("Seleccione el deporte al que va ingresar \n1- Futball\n2- Basketball \n3- Volleyball")));
@@ -462,7 +553,7 @@ break;
 
                             clx.setEstadoFut(JOptionPane.showInputDialog("Activar deporte? S/N").charAt(0));
                             clx.setEstaddo1("Deporte futball agregado");
-                            clx.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (clx.getEstadoFut() == 'S') {
                                 if (s < deps.length) {
@@ -485,7 +576,7 @@ break;
 
                             clx.setEstadoFut(JOptionPane.showInputDialog("Activar deporte? S/N").charAt(0));
                             clx.setEstaddo1("Deporte Basketball agregado");
-                            clx.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (clx.getEstadoFut() == 'S') {
                                 if (s < deps.length) {
@@ -507,7 +598,7 @@ break;
 
                             clx.setEstadoFut(JOptionPane.showInputDialog("Activar deporte? S/N").charAt(0));
                             clx.setEstaddo1("Deporte Volleyball agregado");
-                            clx.setNombreUsuario(JOptionPane.showInputDialog("Ingrese su nombre de Usuario"));
+                            
 
                             if (clx.getEstadoFut() == 'S') {
                                 if (s < deps.length) {
@@ -525,16 +616,28 @@ break;
 
                     }
                     break;
+                        }
+                    }if (usu == null) {
+                        JOptionPane.showMessageDialog(null, "Usuario No encontrado");
+                    }
+                    break;
+            
+        
+    
 
                 case '2':
                     continuar = true;
+                    if (s>0) {
+                    
                     for (int y = 0; y < s; y++) {
                         clx = deps[y];
                         JOptionPane.showMessageDialog(null, "Datos del "
                                 + "Usuario: " + deps[y].getNombreUsuario() + "\n"
                                 + "Activo: " + deps[y].getEstaddo1() + "\n" + "Activado?: " + deps[y].getEstadoFut());
-                    }
-                    break;
+                    }break;} else {
+
+                        JOptionPane.showMessageDialog(null, "No existen deportistas en el catálogo, debes crear uno");
+                    }break;
 
                 case '3':
                     JOptionPane.showMessageDialog(null, "Volviendo al Menu Principal");
