@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Main;
 
-/**
- *
- * @author braym
- */
+
 public class Facturacion {
+
 
     private String Mes;
     private String Deporte;
@@ -22,18 +17,24 @@ public class Facturacion {
     
     
     
-    
+
+    private String Mes;
+    private String Deporte;
+    private int Pago;
+
 
     public Facturacion() {
         this.Mes = "";
         this.Deporte = "";
         this.Pago = 0;
+
         this.Nombre = "";
         this.Fecha = "";
         this.Hora = "";
         this.Rutina = "";
         this.Costo = 0.00;
         this.pagoRealizado="";
+
     }
 
     public String getMes() {
@@ -59,6 +60,7 @@ public class Facturacion {
     public void setPago(int Pago) {
         this.Pago = Pago;
     }
+
 
     public String getNombre() {
         return Nombre;
@@ -109,6 +111,7 @@ public class Facturacion {
     }
     
     
+
 
     
 }
